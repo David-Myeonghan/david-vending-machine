@@ -44,6 +44,11 @@ button {
 }
 
 /* Ready */
+.proceed-box {
+    margin-top: 16px;
+}
+
+/* CommonSection */
 .subtitle-box {
     display: flex;
     flex-direction: column;
@@ -55,3 +60,5 @@ button {
     display: flex;
     gap: 8px;
 }
+
+/* End */

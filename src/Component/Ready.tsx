@@ -6,6 +6,7 @@ interface ReadyProps {
 
 export default function Ready({onNext}: ReadyProps) {
     const {paymentMethod, insertedCash, handleCardClick, handleCashClick} = useOrder();
+    const isProceedAble = paymentMethod === 'Cash' && insertedCash === 0;
 
     return (
         <div className='flex-box'>
@@ -24,8 +25,8 @@ export default function Ready({onNext}: ReadyProps) {
                 <button onClick={handleCardClick}>Insert Card
                 </button>
             </div>
-            <div>
-                <button onClick={onNext}>Choose product</button>
+            <div className='proceed-box'>
+                <button onClick={onNext} disabled={isProceedAble}>Choose product</button>
             </div>
         </div>
     )

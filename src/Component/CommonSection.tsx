@@ -1,7 +1,13 @@
 import {useOrder} from "../Context/OrderContext.tsx";
+import {Step} from "../App.tsx";
 
-export default function CommonSection() {
-    const {insertedCash, paymentMethod} = useOrder()
+interface CommonSectionProps {
+    step: Step;
+}
+
+export default function CommonSection({step}: CommonSectionProps) {
+    const {insertedCash, paymentMethod} = useOrder();
+    
     return (
         <div className='subtitle-box'>
             <div className='subtitle-section'>
@@ -13,7 +19,7 @@ export default function CommonSection() {
             <div className='subtitle-section'>
                 <h3>inserted cash: </h3>
                 <h3>
-                    {paymentMethod === 'Card' ? 'N/A' : insertedCash}
+                    {paymentMethod === 'Card' ? 'N/A' : insertedCash.toLocaleString()}
                 </h3>
             </div>
         </div>

@@ -2,6 +2,7 @@ import {useState} from 'react'
 import Ready from "./Component/Ready.tsx";
 import Choose from "./Component/Choose.tsx";
 import OrderProvider from "./Context/OrderContext.tsx";
+import CommonSection from "./Component/CommonSection.tsx";
 
 
 type Step = 'Ready' | 'Choose'
@@ -15,7 +16,7 @@ function App() {
             <div className='layout'>
                 {step === 'Ready' && <Ready onNext={() => setStep('Choose')}/>}
                 {step === 'Choose' && <Choose/>}
-
+                <CommonSection/>
             </div>
         </OrderProvider>
     )

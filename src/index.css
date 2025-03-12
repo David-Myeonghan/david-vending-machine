@@ -10,15 +10,16 @@ button {
     border-radius: 8px;
     font-size: 20px;
     padding: 4px;
-
 }
 
 .layout {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
 
     margin: 16px;
 }

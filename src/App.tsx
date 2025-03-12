@@ -15,6 +15,7 @@ function App() {
             <div className='layout'>
                 {step === 'Ready' && <Ready onNext={() => setStep('Choose')}/>}
                 {step === 'Choose' && <Choose/>}
+
             </div>
         </OrderProvider>
     )

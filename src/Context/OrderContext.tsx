@@ -1,4 +1,4 @@
-import {createContext, ReactNode, useContext, useState} from "react";
+import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 
 interface OrderContextType {
     paymentMethod: string;
@@ -18,9 +18,17 @@ export default function OrderProvider({children}: OrderProviderProps) {
     const [insertedCash, setInsertedCash] = useState(0);
 
     const handleCardClick = () => {
+        if (insertedCash !== 0) {
+            alert('Inserted cash will be return');
+            setInsertedCash(0);
+        }
         setPaymentMethod('Card')
     }
     const handleCashClick = (value: number) => {
+        if (paymentMethod !== 'Cash') {
+            alert('Inserted card will be return');
+            setPaymentMethod('Cash')
+        }
         setInsertedCash(prev => prev + value);
     }
 

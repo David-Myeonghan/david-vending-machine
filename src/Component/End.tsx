@@ -6,7 +6,7 @@ interface EndProps {
 }
 
 export default function End({onContinueClick, onReturnClick}: EndProps) {
-    const {reset} = useOrder();
+    const {insertedCash, paymentMethod, reset} = useOrder();
     const handleContinueClick = () => {
         onContinueClick();
     }
@@ -14,6 +14,9 @@ export default function End({onContinueClick, onReturnClick}: EndProps) {
         reset();
         onReturnClick();
     }
+
+    const noMoreCash = insertedCash === 0
+    const returningTitle = paymentMethod === 'Cash' ? 'Return change' : 'Return card'
 
     return (
         <div className='flex-box'>
@@ -24,8 +27,8 @@ export default function End({onContinueClick, onReturnClick}: EndProps) {
                 <h2>Do you want to continue to order?</h2>
             </div>
             <div className='button-box'>
-                <button onClick={handleContinueClick}>Continue</button>
-                <button onClick={handleReturnClick}>Return change</button>
+                <button onClick={noMoreCash ? handleReturnClick : handleContinueClick}>Continue</button>
+                <button onClick={handleReturnClick}>{returningTitle}</button>
             </div>
         </div>
     )

@@ -6,6 +6,8 @@
 
 # Version: v1.0.0
 
+# Diagram location: /diagram.pdf
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
